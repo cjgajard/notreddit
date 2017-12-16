@@ -6,16 +6,22 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "watch": "webpack -d --colors -w",
-    "build": "webpack -p"
+    "build": "webpack -p",
+    "dev": "lite-server",
+    "start": "npm run build && npm run dev"
   },
   "author": "Carlos Gajardo",
   "license": "ISC",
   "dependencies": {
+    "history": "^4.7.2",
     "node-time-ago": "^1.0.0",
     "prop-types": "^15.6.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-redux": "^5.0.6",
+    "react-router": "^4.2.0",
+    "react-router-dom": "^4.2.2",
+    "react-router-redux": "^5.0.0-alpha.9",
     "redux": "^3.7.2",
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.2.0",
@@ -34,6 +40,7 @@
     "eslint-plugin-jsx-a11y": "^6.0.2",
     "eslint-plugin-react": "^7.5.1",
     "html-webpack-plugin": "^2.30.1",
+    "lite-server": "^2.3.0",
     "node-sass": "^4.7.2",
     "pug": "^2.0.0-rc.4",
     "pug-loader": "^2.3.0",

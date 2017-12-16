@@ -1,8 +1,9 @@
 @import '~reset-css/reset.css';
-@import './variables.scss';
-@import './grid.scss';
+@import './_variables';
+@import './_colour';
+@import './_grid';
 
-@import './story-listing.scss';
+@import './_story_listing.scss';
 
 html {
   font-size: 62.5%;
@@ -11,7 +12,6 @@ html {
 body {
   color: $darkest-gray;
   font-family: Verdana, Geneva, sans-serif;
-  // font-family: Helvetica, Arial, sans-serif;
   font-size: $font-size;
 }
 
@@ -19,7 +19,19 @@ a {
   text-decoration: none;
 }
 
+h1, h2, h3 {
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+h1 {
+  font-size: $font-size * 2.1;
+}
+
 .main {
   background-color: $lightest-gray;
   margin: $vpadding $hpadding-lg 0;
+}
+
+.hseparator {
+  margin: 0 0.5ex;
 }

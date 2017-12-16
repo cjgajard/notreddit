@@ -3,6 +3,10 @@ import { STORIES_MOCK } from './mocks';
 
 const initialState = {
   list: STORIES_MOCK,
+  formData: {
+    title: '',
+    body: '',
+  },
 };
 
 const reducer = (state = initialState, action) => {

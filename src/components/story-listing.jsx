@@ -3,12 +3,14 @@ import PropTypes from 'prop-types';
 import Story from './story-listing-item';
 
 const StoryListing = props => (
-  <div className="story-listing">
-    {
-      props.list.map(story => (
-        <Story story={story} key={story.id} />
-      ))
-    }
+  <div>
+    <div className="listing">
+      {
+        props.list.map(story => (
+          <Story story={story} key={story.id} />
+        ))
+      }
+    </div>
   </div>
 );
 // <Story story={story} onHide={props.onHide} key={story.id} />

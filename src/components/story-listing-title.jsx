@@ -21,10 +21,12 @@ const LinkTitle = (props) => {
 };
 
 const Title = (props) => {
-  if (props.story.url) {
-    return (<LinkTitle story={props.story} />);
-  }
-  return (<TextTitle story={props.story} />);
+  const TitleKind = (props.story.url) ? LinkTitle : TextTitle;
+  return (
+    // <span className="rank">{props.rank}.</span>
+    // upvotes here
+    <TitleKind story={props.story} />
+  );
 };
 
 const storyTypes = {
