@@ -21,13 +21,24 @@ const config = {
       {
         test: /\.(pug|jade)$/,
         loader: 'pug-loader',
+      },
+      {
+        test: /\.scss$/,
+        use: [
+          { loader: 'style-loader' },
+          { loader: 'css-loader' },
+          { loader: 'sass-loader' },
+        ]
       }
     ]
   },
   plugins: [
     new webpack.optimize.UglifyJsPlugin(),
     new HtmlWebpackPlugin({ template: './src/index.pug' }),
-  ]
+  ],
+  resolve: {
+    extensions: ['.js', '.jsx']
+  }
 };
 
 module.exports = config;

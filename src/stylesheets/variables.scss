@@ -1,0 +1,27 @@
+$font-size: 1.4rem;
+
+$vpadding: $font-size * 0.3;
+$hpadding: $vpadding * 1.8;
+$hpadding-lg: $hpadding * 4;
+
+$darkest-gray: #202020;
+$darker-gray: #404040;
+$dark-gray: #808080;
+$gray: #a0a0a0;
+$light-gray: #d0d0d0;
+$lighter-gray: #e0e0e0;
+$lightest-gray: #f6f6f6;
+
+$primary-color: #6363fa;
+$primary-color-dark: darken($primary-color, 40%);
+$primary-color-light: lighten($primary-color, 10%);
+
+$screen-sm: 576px;
+$screen-md: 768px;
+$screen-lg: 992px;
+$screen-xl: 122px;
+
+$container-sm: 540px;
+$container-md: 720px;
+$container-lg: 960px;
+$container-xl: 1140px;

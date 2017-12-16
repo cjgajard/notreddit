@@ -1,0 +1,57 @@
+@import './variables.scss';
+
+.story-listing {
+  padding: $vpadding 0;
+
+  .link,
+  .title {
+    color: $darkest-gray;
+  }
+
+  .link {
+    &:visited {
+      color: $dark-gray;
+    }
+  }
+
+  .item {
+    padding: $vpadding $hpadding;
+
+    &:nth-child(odd) {
+      background-color: rgba(0, 0, 0, 0.01);
+    }
+  }
+
+  .body {
+    margin-bottom: $vpadding;
+  }
+
+  .domain,
+  .subtext {
+    font-size: 0.8em;
+    color: $primary-color-light;
+    font-family: monospace;
+  }
+
+  .domain {
+    margin: 0 0.5ex;
+  }
+
+  .subtext {
+    margin-bottom: $vpadding;
+    color: $dark-gray;
+
+    a {
+      color: $primary-color-light;
+
+      &:focus,
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  .separator {
+    margin: 0 0.5ex;
+  };
+}

@@ -1,0 +1,23 @@
+@import './variables.scss';
+
+.container {
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 $hpadding;
+
+  @media screen and (min-width: $screen-sm) {
+    max-width: $container-sm;
+  }
+
+  @media screen and (min-width: $screen-md) {
+    max-width: $container-md;
+  }
+
+  @media screen and (min-width: $screen-lg) {
+    max-width: $container-lg;
+  }
+
+  @media screen and (min-width: $screen-xl) {
+    max-width: $container-xl;
+  }
+}
