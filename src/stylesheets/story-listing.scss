@@ -1,17 +1,16 @@
 @import './variables.scss';
 
+.small {
+  font-size: 0.8em;
+  font-family: monospace;
+}
+
 .story-listing {
   padding: $vpadding 0;
+  color: $dark-gray;
 
-  .link,
-  .title {
-    color: $darkest-gray;
-  }
-
-  .link {
-    &:visited {
-      color: $dark-gray;
-    }
+  a {
+    color: inherit;
   }
 
   .item {
@@ -22,28 +21,28 @@
     }
   }
 
-  .body {
+  .body,
+  .subtext {
     margin-bottom: $vpadding;
   }
 
-  .domain,
-  .subtext {
-    font-size: 0.8em;
-    color: $primary-color-light;
-    font-family: monospace;
+  .domain {
+    @extend .small;
+    margin: 0 0.5ex;
   }
 
-  .domain {
+  .highlight {
+    color: $primary-color;
+  }
+
+  .separator {
     margin: 0 0.5ex;
   }
 
   .subtext {
-    margin-bottom: $vpadding;
-    color: $dark-gray;
+    @extend .small;
 
     a {
-      color: $primary-color-light;
-
       &:focus,
       &:hover {
         text-decoration: underline;
@@ -51,7 +50,11 @@
     }
   }
 
-  .separator {
-    margin: 0 0.5ex;
-  };
+  .title {
+    color: $darkest-gray;
+
+    a:visited {
+      color: $dark-gray;
+    }
+  }
 }

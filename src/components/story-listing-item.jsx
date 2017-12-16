@@ -1,18 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import timeAgo from 'node-time-ago';
 import StoryListingTitle from './story-listing-title';
-
-// const UserLink = ({ user }) => (
-
-// );
-
-// UserLink.propTypes = {
-//   user: PropTypes.shape({ username: PropTypes.string }),
-// };
-
-// UserLink.defaultProps = {
-//   user: {},
-// };
 
 const StoryListingItem = props => (
   <div className="item">
@@ -23,11 +12,11 @@ const StoryListingItem = props => (
     </p>
     <p className="subtext">
       by {(!props.story.user) ? 'anonymous' : (
-        <a href={`user?id=${props.story.user.username}`}>
+        <a className="highlight" href={`user?id=${props.story.user.username}`}>
           {props.story.user.username}
         </a>
       )}
-      &nbsp;<a href={`story?id=${props.story.id}`}>3 hours ago</a>
+      &nbsp;<a href={`story?id=${props.story.id}`}>{timeAgo(props.story.createdAt)}</a>
       {/* <span className="separator">|</span> */}
       {/* <button onClick={props.onHide()}>hide</button> */}
       <span className="separator">|</span>
@@ -38,10 +27,11 @@ const StoryListingItem = props => (
 
 StoryListingItem.propTypes = {
   story: PropTypes.shape({
+    createdAt: PropTypes.instanceOf(Date),
+    commentsCount: PropTypes.number,
+    domain: PropTypes.string,
     id: PropTypes.number.isRequired,
     title: PropTypes.string,
-    domain: PropTypes.string,
-    commentsCount: PropTypes.number,
     user: PropTypes.shape({ username: PropTypes.string }),
   }).isRequired,
   // onHide: PropTypes.func.isRequired,
