@@ -1,9 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import Story from './story-listing-item';
 
 const StoryListing = props => (
   <div>
+    <div>
+      <Link to="/submit" >Submit</Link>
+    </div>
     <div className="listing">
       {
         props.list.map(story => (

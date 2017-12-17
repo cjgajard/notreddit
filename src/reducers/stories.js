@@ -1,23 +1,34 @@
-import * as actions from '../actions';
-import { STORIES_MOCK } from './mocks';
+import update from 'immutability-helper';
+import * as actions from '../actions/stories';
+// import { STORIES_MOCK } from '../services/mocks';
 
 const initialState = {
-  list: STORIES_MOCK,
-  formData: {
-    title: '',
-    body: '',
+  list: {
+    data: [],
+  },
+  form: {
+    data: {
+      title: '',
+      body: '',
+    },
+    sending: false,
   },
 };
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case actions.CHANGE_COUNTER:
-      return Object.assign({}, state, {
-        counter: state.counter + action.amount,
+    case actions.CHANGE_FORM:
+      return update(state, {
+        form: { data: { $set: action.data } },
       });
-    case actions.RESET_COUNTER:
-      return Object.assign({}, state, {
-        counter: action.amount,
+    case actions.SUBMIT_FORM_SENDING:
+      return update(state, {
+        form: { sending: { $set: true } },
+      });
+    case actions.SUBMIT_FORM_SUCCESS:
+      return update(state, {
+        form: { sending: { $set: false } },
+        list: { data: { $unshift: action.data } },
       });
     default:
       return state;

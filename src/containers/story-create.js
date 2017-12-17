@@ -1,14 +1,15 @@
 import { connect } from 'react-redux';
-// import * as actions from '../actions';
+import * as actions from '../actions/stories';
 import StoryForm from '../components/story-form';
 
 const mapStateToProps = state => ({
-  formData: state.stories.formData,
+  data: state.stories.form.data,
+  sending: state.stories.form.sending,
 });
 
-// const mapDispatchToProps = dispatch => ({
-//   onSumbit: () => dispatch(actions.submitStory()),
-//   // onChange: () => dispatch(actions.submitStory()),
-// });
+const mapDispatchToProps = dispatch => ({
+  onChange: data => dispatch(actions.changeForm(data)),
+  onSubmit: () => dispatch(actions.submitForm()),
+});
 
-export default connect(mapStateToProps)(StoryForm);
+export default connect(mapStateToProps, mapDispatchToProps)(StoryForm);

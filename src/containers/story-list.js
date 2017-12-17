@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import StoryListing from '../components/story-listing';
 
 const mapStateToProps = state => ({
-  list: state.stories.list,
+  list: state.stories.list.data,
 });
 
 // const mapDispatchToProps = dispatch => ({

@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const TextTitle = props => (
-  <span className="title">{props.story.title}</span>
+  <p className="title">{props.story.title}</p>
 );
 
 const LinkTitle = (props) => {
@@ -13,10 +13,10 @@ const LinkTitle = (props) => {
   );
 
   return (
-    <span className="title">
+    <p className="title">
       <a href={props.story.url}>{props.story.title}</a>
       {domainSpan}
-    </span>
+    </p>
   );
 };
 

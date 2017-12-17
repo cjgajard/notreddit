@@ -5,22 +5,25 @@ export const randomDate = (start, end = new Date()) => {
   return new Date(newTime + start.getTime());
 };
 
-export const createStory = (data = {}) => {
+export const createStory = (create = false, data = {}) => {
   storyID += 1;
   const id = storyID;
+  const createdAt = create ? new Date() : (
+    data.createdAt || randomDate(new Date(2017, 0, 1))
+  );
 
   return {
     id,
     title: data.title || `Example title ${id}`,
     body: data.body || `Example body ${id}`,
-    createdAt: data.createdAt || randomDate(new Date(2017, 0, 1)),
+    createdAt,
     user: {
       username: data.username || (
         Math.random().toString(36).replace(/[0-9]/g, '').substring(1)
       ),
       id: data.userID || 1,
     },
-    commentsCount: Math.floor(Math.random() * 100),
+    commentsCount: create ? 0 : Math.floor(Math.random() * 100),
   };
 };
 
@@ -50,12 +53,11 @@ export const createLinkStory = (data = {}) => {
   return story;
 };
 
-export const STORIES_MOCK = [];
-
-for (let i = 1; i <= 20; i += 1) {
-  if (Math.random() > 0.8) {
-    STORIES_MOCK.push(createLinkStory());
-  } else {
-    STORIES_MOCK.push(createStory());
-  }
-}
+// export const STORIES_MOCK = [];
+// for (let i = 1; i <= 5; i += 1) {
+//   if (Math.random() > 0.8) {
+//     STORIES_MOCK.push(createLinkStory());
+//   } else {
+//     STORIES_MOCK.push(createStory());
+//   }
+// }

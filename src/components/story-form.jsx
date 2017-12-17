@@ -5,49 +5,76 @@ import { Link } from 'react-router-dom';
 const StoryForm = class extends React.Component {
   constructor(props) {
     super(props);
-    this.state = props.formData;
+    this.state = props.data;
 
-    // this.handleChange = this.handleChange.bind(this);
-    // this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  // handleChange(event) {
-  //   this.setState({ [event.target.name]: event.target.value });
-  //   this.props.onChange();
-  // }
-  //
-  // handleSubmit() {
-  //   this.props.onSubmit();
-  // }
+  handleChange(event) {
+    const { target } = event;
+    const value = target.type === 'checkbox' ? target.checked : target.value;
+    this.setState({ [target.name]: value });
+  }
+
+  handleSubmit(event) {
+    event.preventDefault();
+    this.props.onChange(this.state);
+    this.props.onSubmit();
+  }
 
   render() {
     return (
       <div>
         <h1>Submit</h1>
         <p className="small">
-          <Link href="/">Back</Link>
+          <Link to="/">Back</Link>
         </p>
-        <div>
-          <label htmlFor="story-title">
-            Title<br />
-            <input id="story-title" type="text" value={this.state.title} />
-          </label>
-        </div>
-        <div>
-          <label htmlFor="story-body">
-            Body<br />
-            <textarea id="story-body" value={this.state.body} />
-          </label>
-        </div>
+        <form onSubmit={this.handleSubmit}>
+          <div>
+            <label htmlFor="story-title">
+              Title<br />
+              <input
+                id="story-title"
+                type="text"
+                name="title"
+                value={this.state.title}
+                onChange={this.handleChange}
+              />
+            </label>
+          </div>
+          <div>
+            <label htmlFor="story-body">
+              Body<br />
+              <textarea
+                id="story-body"
+                name="body"
+                value={this.state.body}
+                onChange={this.handleChange}
+              />
+            </label>
+          </div>
+          <div>
+            <input type="submit" value="Submit" disabled={this.props.sending} />
+          </div>
+        </form>
       </div>
     );
   }
 };
 
 StoryForm.propTypes = {
-  formData: PropTypes.shape({ title: PropTypes.string }).isRequired,
-  // onChange: PropTypes.func.isRequired,
-  // onSubmit: PropTypes.func.isRequired,
+  data: PropTypes.shape({
+    title: PropTypes.string,
+    body: PropTypes.string,
+  }).isRequired,
+  sending: PropTypes.bool,
+  onChange: PropTypes.func.isRequired,
+  onSubmit: PropTypes.func.isRequired,
+};
+
+StoryForm.defaultProps = {
+  sending: false,
 };
 
 export default StoryForm;
