@@ -14,7 +14,7 @@ const LinkTitle = (props) => {
 
   return (
     <p className="title">
-      <a href={props.story.url}>{props.story.title}</a>
+      <a href={props.story.url}>{props.story.title || props.story.url}</a>
       {domainSpan}
     </p>
   );

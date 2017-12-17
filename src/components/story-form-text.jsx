@@ -25,7 +25,7 @@ const StoryForm = class extends React.Component {
   }
 
   isValid() {
-    return (this.state.title && this.state.body);
+    return (this.state.title && this.state.username && this.state.body);
   }
 
   render() {
