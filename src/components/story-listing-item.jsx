@@ -7,10 +7,8 @@ const StoryListingItem = props => (
   <div className="item" id={`story-${props.story.id}`}>
     <StoryListingTitle story={props.story} />
     <p className="subtext">
-      by {(!props.story.user) ? 'anonymous' : (
-        <a className="text-primary" href={`user?id=${props.story.user.username}`}>
-          {props.story.user.username}
-        </a>
+      by {(!props.story.username) ? 'anonymous' : (
+        <a href={`user?id=${props.story.username}`}>{props.story.username}</a>
       )}
       &nbsp;<a href={`story?id=${props.story.id}`}>{timeAgo(props.story.createdAt)}</a>
       {/* <span className="hseparator">|</span> */}
@@ -28,7 +26,7 @@ StoryListingItem.propTypes = {
     domain: PropTypes.string,
     id: PropTypes.number.isRequired,
     title: PropTypes.string,
-    user: PropTypes.shape({ username: PropTypes.string }),
+    username: PropTypes.string,
   }).isRequired,
   // onHide: PropTypes.func.isRequired,
 };

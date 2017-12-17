@@ -1,0 +1,47 @@
+@import "./_variables";
+@import "./_mixins";
+
+.nav {
+  background-color: white;
+  padding: $vpadding $hpadding;
+  list-style-type: none;
+  border-bottom: $main-border;
+}
+
+.nav-item,
+.nav-skip {
+  display: inline-block;
+  padding: 0 $vpadding 1px;
+}
+
+.nav-item {
+  a {
+    background-color: $primary-color-lighter;
+    padding: $vpadding $hpadding;
+    border-top-left-radius: $vpadding;
+    border-top-right-radius: $vpadding;
+    border: $main-border;
+    color: $primary-color;
+    transition: color 160ms ease;
+
+    &:hover {
+      color: white;
+    }
+  }
+
+  &.active a {
+    background-color: $lightest-gray;
+    border-bottom-color: transparent;
+    color: $complementary-color;
+  }
+}
+
+.nav-skip {
+  a {
+    @extend .small;
+    color: $dark-gray;
+    &:hover {
+      color: $primary-color;
+    }
+  }
+}

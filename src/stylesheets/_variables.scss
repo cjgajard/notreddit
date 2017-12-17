@@ -13,6 +13,8 @@ $lighter-gray: lighten($light-gray, 10%);
 $lightest-gray: lighten($lighter-gray, 10%);
 
 $primary-color: #5353a9;
+$primary-color-light: lighten($primary-color, 25%);
+$primary-color-lighter: lighten($primary-color-light, 15%);
 $complementary-color: #ff9635;
 
 $screen-sm: 576px;
@@ -24,3 +26,5 @@ $container-sm: 540px;
 $container-md: 720px;
 $container-lg: 960px;
 $container-xl: 1140px;
+
+$main-border: 1px solid $primary-color-light;

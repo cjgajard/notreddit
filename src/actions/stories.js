@@ -27,10 +27,8 @@ export const submitFormSuccess = data => ({
 export const submitForm = () => (dispatch, getState) => {
   const state = getState();
   dispatch(submitFormSending());
-  setTimeout(() => {
-    StoryService.create(state.stories.form.data).then((response) => {
-      dispatch(push('/'));
-      dispatch(submitFormSuccess(response.data));
-    });
-  }, 1000);
+  StoryService.create(state.stories.form.data).then((response) => {
+    dispatch(submitFormSuccess(response.data));
+    dispatch(push('/'));
+  });
 };

@@ -1,0 +1,17 @@
+@import './_variables';
+
+.form {
+  padding: $vpadding 0;
+}
+
+.form-group {
+  margin-bottom: $vpadding;
+
+  &:first-child {
+    margin-top: $vpadding;
+  }
+}
+
+.form-control {
+  padding: $vpadding $hpadding;
+}

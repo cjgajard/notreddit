@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import * as actions from '../actions/stories';
-import StoryForm from '../components/story-form';
+import StoryForm from '../components/story-form-link';
 
 const mapStateToProps = state => ({
   data: state.stories.form.data,

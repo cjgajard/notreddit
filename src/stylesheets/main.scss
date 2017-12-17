@@ -3,7 +3,13 @@
 @import './_colour';
 @import './_grid';
 
-@import './_story_listing.scss';
+@import './_nav.scss';
+@import './_listing.scss';
+@import './_form.scss';
+
+* {
+  box-sizing: border-box;
+}
 
 html {
   font-size: 62.5%;

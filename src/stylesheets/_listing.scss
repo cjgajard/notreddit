@@ -12,7 +12,7 @@
   .item {
     padding: $vpadding $hpadding;
 
-    &:nth-child(odd) {
+    &:nth-child(even) {
       background-color: rgba(0, 0, 0, 0.01);
     }
   }

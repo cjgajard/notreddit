@@ -9,7 +9,9 @@ const initialState = {
   form: {
     data: {
       title: '',
+      username: '',
       body: '',
+      url: '',
     },
     sending: false,
   },
@@ -27,7 +29,10 @@ const reducer = (state = initialState, action) => {
       });
     case actions.SUBMIT_FORM_SUCCESS:
       return update(state, {
-        form: { sending: { $set: false } },
+        form: {
+          data: { $set: initialState.form.data },
+          sending: { $set: false },
+        },
         list: { data: { $unshift: action.data } },
       });
     default:

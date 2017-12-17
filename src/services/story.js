@@ -1,4 +1,4 @@
-import { createStory } from './mocks';
+import { Story } from './mocks';
 
 const StoryService = class {
   static create(data) {
@@ -7,7 +7,8 @@ const StoryService = class {
     axios, etc. is supposed to be used here.
     */
     // return jQuery.ajax({ url: this.resource, method: 'post', data })
-    return Promise.resolve({ data: createStory(true, data) });
+
+    return Promise.resolve({ data: Story.generate(data) });
   }
 };
 
