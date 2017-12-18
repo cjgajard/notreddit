@@ -14,7 +14,9 @@ const LinkTitle = (props) => {
 
   return (
     <p className="title">
-      <a href={props.story.url}>{props.story.title || props.story.url}</a>
+      <a href={props.story.url} target="_blank">
+        {props.story.title || props.story.url}
+      </a>
       {domainSpan}
     </p>
   );

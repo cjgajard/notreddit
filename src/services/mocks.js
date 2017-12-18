@@ -1,5 +1,5 @@
 let storyID = 0;
-
+export const STORIES_LIST = [];
 const exampleLinks = [
   {
     title: 'Google, a web search engine',
@@ -20,20 +20,11 @@ const exampleLinks = [
 export const Story = class {
   constructor(options) {
     storyID += 1;
-    return Object.assign({}, options, {
+    Object.assign(this, options, {
       id: storyID,
       createdAt: new Date(),
       commentsCount: 0,
     });
-  }
-
-  static randomDate(start, end = new Date()) {
-    const newTime = Math.random() * (end.getTime() - start.getTime());
-    return new Date(newTime + start.getTime());
-  }
-
-  static randomName() {
-    return Math.random().toString(36).replace(/[0-9]/g, '').substring(1);
   }
 
   static generate(data = {}) {
@@ -56,9 +47,20 @@ export const Story = class {
     story.domain = data.domain || link.domain;
     return story;
   }
-};
 
-export const STORIES_MOCK = [];
+  static get list() {
+    return STORIES_LIST;
+  }
+
+  static randomDate(start, end = new Date()) {
+    const newTime = Math.random() * (end.getTime() - start.getTime());
+    return new Date(newTime + start.getTime());
+  }
+
+  static randomName() {
+    return Math.random().toString(36).replace(/[0-9]/g, '').substring(1);
+  }
+};
 
 // for (let i = 1; i <= 20; i += 1) {
 //   if (Math.random() > 0.8) {
