@@ -7,22 +7,22 @@ const StoryNav = props => (
     {
       props.title && (<li className="nav-item">{props.title}</li>)
     }
-    <li className="nav-item active">
+    <li className={`nav-item ${(props.active === 'home') ? 'active' : ''}`}>
       <Link to="/">news</Link>
     </li>
-    <li className="nav-item">
+    <li className={`nav-item ${(props.active === 'submit') ? 'active' : ''}`}>
       <Link to="/submit">submit</Link>
     </li>
   </ul>
 );
 
 StoryNav.propTypes = {
-  // active: PropTypes.oneOf(['text', 'link']),
+  active: PropTypes.oneOf(['home', 'submit', '']),
   title: PropTypes.string,
 };
 
 StoryNav.defaultProps = {
-  // active: '',
+  active: '',
   title: '',
 };
 

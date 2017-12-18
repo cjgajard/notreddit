@@ -8,7 +8,7 @@ const StoryFormNav = props => (
       props.title && (<li className="nav-item">{props.title}</li>)
     }
     <li className="nav-skip">
-      <Link to="/">back</Link>
+      <a href="javascript:void(0)" onClick={() => history.back()}>back</a>
     </li>
     <li className={`nav-item  ${(props.active === 'text') ? 'active' : ''}`}>
       <Link to="/submit/text">text</Link>

@@ -11,7 +11,7 @@ const StoryListing = class extends React.Component {
   render() {
     return (
       <div>
-        <StoryNav title="notreddit" />
+        <StoryNav title="notreddit" active="home" />
         <div className="listing">
           {
             this.props.list.map(story => (
