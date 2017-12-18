@@ -12,6 +12,11 @@ const StoryService = class {
     return Promise.resolve({ data: story });
   }
 
+  static find(id) {
+    // return jQuery.ajax({ url: this.resource, method: 'get' })
+    return Promise.resolve({ data: Story.find(id) });
+  }
+
   static list() {
     // return jQuery.ajax({ url: this.resource, method: 'get' })
     return Promise.resolve({ data: Story.list });

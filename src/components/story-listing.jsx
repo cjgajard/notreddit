@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Story from './story-listing-item';
-import StoryListingNav from './story-listing-nav';
+import StoryNav from './story-nav';
 
 const StoryListing = class extends React.Component {
   componentDidMount() {
@@ -11,7 +11,7 @@ const StoryListing = class extends React.Component {
   render() {
     return (
       <div>
-        <StoryListingNav title="notreddit" />
+        <StoryNav title="notreddit" />
         <div className="listing">
           {
             this.props.list.map(story => (

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
 import StoryFormNav from './story-form-nav';
+import FormInput from './form-input';
 
 const StoryForm = class extends React.Component {
   constructor(props) {
@@ -34,44 +34,25 @@ const StoryForm = class extends React.Component {
         <StoryFormNav active="text" title="submit" />
         <div className="container">
           <form className="form" onSubmit={this.handleSubmit}>
-            <div className="form-group">
-              <label htmlFor="story-title">
-                Title<br />
-                <input
-                  id="story-title"
-                  type="text"
-                  name="title"
-                  value={this.state.title}
-                  onChange={this.handleChange}
-                  className="form-control"
-                />
-              </label>
-            </div>
-            <div className="form-group">
-              <label htmlFor="story-username">
-                Username<br />
-                <input
-                  id="story-username"
-                  type="text"
-                  name="username"
-                  value={this.state.username}
-                  onChange={this.handleChange}
-                  className="form-control"
-                />
-              </label>
-            </div>
-            <div className="form-group">
-              <label htmlFor="story-body">
-                Body<br />
-                <textarea
-                  id="story-body"
-                  name="body"
-                  value={this.state.body}
-                  onChange={this.handleChange}
-                  className="form-control"
-                />
-              </label>
-            </div>
+            <FormInput
+              label="story"
+              name="title"
+              onChange={this.handleChange}
+              control={this.state.title}
+            />
+            <FormInput
+              label="story"
+              name="username"
+              onChange={this.handleChange}
+              control={this.state.username}
+            />
+            <FormInput
+              type="textarea"
+              label="story"
+              name="body"
+              onChange={this.handleChange}
+              control={this.state.body}
+            />
             <div className="form-group">
               <input
                 type="submit"

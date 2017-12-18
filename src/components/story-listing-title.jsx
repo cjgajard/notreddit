@@ -1,8 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 const TextTitle = props => (
-  <p className="title">{props.story.title}</p>
+  <p className="title">
+    <Link to={`/story/${props.story.id}`}>
+      {props.story.title}
+    </Link>
+  </p>
 );
 
 const LinkTitle = (props) => {
@@ -33,6 +38,7 @@ const Title = (props) => {
 
 const storyTypes = {
   story: PropTypes.shape({
+    id: PropTypes.number,
     url: PropTypes.string,
     domain: PropTypes.string,
     title: PropTypes.string,

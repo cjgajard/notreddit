@@ -41,8 +41,12 @@
   .title {
     color: $darkest-gray;
 
-    a:visited {
-      color: $dark-gray;
+    a {
+      color: $darkest-gray;
+
+      &:visited {
+        color: $dark-gray;
+      }
     }
   }
 }

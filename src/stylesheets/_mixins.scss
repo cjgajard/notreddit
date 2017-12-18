@@ -4,3 +4,7 @@
   font-size: 0.8em;
   font-family: monospace;
 }
+
+@mixin round-border($size) {
+  border-radius: $size;
+}

@@ -5,6 +5,7 @@ export const CHANGE_FORM = 'CHANGE_FORM';
 export const FETCH_LIST = 'FETCH_LIST';
 export const FETCH_LIST_LOADING = 'FETCH_LIST_LOADING';
 export const FETCH_LIST_SUCCESS = 'FETCH_LIST_SUCCESS';
+export const FETCH_STORY_SUCCESS = 'FETCH_STORY_SUCCESS';
 export const SUBMIT_FORM = 'SUBMIT_FORM';
 export const SUBMIT_FORM_SENDING = 'SUBMIT_FORM_SENDING';
 export const SUBMIT_FORM_SUCCESS = 'SUBMIT_FORM_SUCCESS';
@@ -25,6 +26,11 @@ export const fetchListSuccess = data => ({
   data,
 });
 
+export const fetchStorySuccess = data => ({
+  type: FETCH_STORY_SUCCESS,
+  data,
+});
+
 export const submitFormSending = () => ({
   type: SUBMIT_FORM_SENDING,
 });
@@ -39,6 +45,12 @@ export const fetchList = () => (dispatch) => {
   dispatch(fetchListLoading());
   StoryService.list().then((response) => {
     dispatch(fetchListSuccess(response.data));
+  });
+};
+
+export const fetchStory = id => (dispatch) => {
+  StoryService.find(id).then((response) => {
+    dispatch(fetchStorySuccess(response.data));
   });
 };
 

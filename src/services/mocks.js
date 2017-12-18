@@ -52,6 +52,10 @@ export const Story = class {
     return STORIES_LIST;
   }
 
+  static find(id) {
+    return this.list.find(s => s.id === id);
+  }
+
   static randomDate(start, end = new Date()) {
     const newTime = Math.random() * (end.getTime() - start.getTime());
     return new Date(newTime + start.getTime());
@@ -62,10 +66,10 @@ export const Story = class {
   }
 };
 
-// for (let i = 1; i <= 20; i += 1) {
-//   if (Math.random() > 0.8) {
-//     STORIES_MOCK.push(Story.generateWithLink());
-//   } else {
-//     STORIES_MOCK.push(Story.generate());
-//   }
-// }
+for (let i = 1; i <= 20; i += 1) {
+  if (Math.random() > 0.75) {
+    Story.list.push(Story.generateWithLink());
+  } else {
+    Story.list.push(Story.generate());
+  }
+}

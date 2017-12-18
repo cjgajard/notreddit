@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
+import FormInput from './form-input';
 import StoryFormNav from './story-form-nav';
 
 const StoryForm = class extends React.Component {
@@ -34,45 +34,32 @@ const StoryForm = class extends React.Component {
         <StoryFormNav active="link" title="submit" />
         <div className="container">
           <form className="form" onSubmit={this.handleSubmit}>
-            <div className="form-group">
-              <label htmlFor="story-title">
-                Title<br />
-                <input
-                  id="story-title"
-                  type="text"
-                  name="title"
-                  value={this.state.title}
-                  onChange={this.handleChange}
-                  className="form-control"
-                />
-              </label>
-            </div>
-            <div className="form-group">
-              <label htmlFor="story-username">
-                Username<br />
-                <input
-                  id="story-username"
-                  type="text"
-                  name="username"
-                  value={this.state.username}
-                  onChange={this.handleChange}
-                  className="form-control"
-                />
-              </label>
-            </div>
-            <div className="form-group">
-              <label htmlFor="story-body">
-                Link<br />
-                <input
-                  id="story-url"
-                  type="url"
-                  name="url"
-                  value={this.state.url}
-                  onChange={this.handleChange}
-                  className="form-control"
-                />
-              </label>
-            </div>
+            <FormInput
+              label="story"
+              name="title"
+              onChange={this.handleChange}
+              control={this.state.title}
+            />
+            <FormInput
+              type="url"
+              label="story"
+              name="url"
+              onChange={this.handleChange}
+              control={this.state.url}
+            />
+            <FormInput
+              label="story"
+              name="username"
+              onChange={this.handleChange}
+              control={this.state.username}
+            />
+            <FormInput
+              type="textarea"
+              label="story"
+              name="body"
+              onChange={this.handleChange}
+              control={this.state.body}
+            />
             <div className="form-group">
               <input
                 type="submit"

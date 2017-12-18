@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 const StoryFormNav = props => (
   <ul className="nav">
     {
-      props.title && (<li className="nav-item"><b>{props.title}</b></li>)
+      props.title && (<li className="nav-item">{props.title}</li>)
     }
     <li className="nav-skip">
       <Link to="/">back</Link>

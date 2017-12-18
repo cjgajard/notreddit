@@ -33,6 +33,10 @@ h1 {
   font-size: $font-size * 2.1;
 }
 
+b {
+  font-weight: bold;
+}
+
 .main {
   background-color: $lightest-gray;
   margin: $vpadding $hpadding-lg 0;
@@ -40,4 +44,12 @@ h1 {
 
 .hseparator {
   margin: 0 0.5ex;
+}
+
+.well {
+  margin: $hpadding 0;
+  padding: $vpadding-lg $hpadding-lg;
+  background-color: fade-out(white, 0.5);
+  border: 1px solid $primary-color-light;
+  @include round-border($hpadding);
 }

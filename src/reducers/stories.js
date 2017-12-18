@@ -15,6 +15,9 @@ const initialState = {
     },
     sending: false,
   },
+  page: {
+    data: {},
+  },
 };
 
 const reducer = (state = initialState, action) => {
@@ -32,6 +35,12 @@ const reducer = (state = initialState, action) => {
         list: {
           data: { $set: action.data },
           loading: { $set: false },
+        },
+      });
+    case actions.FETCH_STORY_SUCCESS:
+      return update(state, {
+        page: {
+          data: { $set: action.data },
         },
       });
     case actions.SUBMIT_FORM_SENDING:
