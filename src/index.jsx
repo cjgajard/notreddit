@@ -9,6 +9,8 @@ import thunkMiddleware from 'redux-thunk';
 import reducers from './reducers';
 import App from './components/app';
 
+import './stylesheets/main.scss';
+
 const logger = createLogger();
 const history = createHistory();
 const router = routerMiddleware(history);

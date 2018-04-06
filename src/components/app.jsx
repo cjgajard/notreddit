@@ -8,8 +8,6 @@ import StoryCreateText from '../containers/story-create-text';
 import StoryCreateLink from '../containers/story-create-link';
 import StoryRetrieve from '../containers/story-retrieve';
 
-import '../stylesheets/main.scss';
-
 const ConnectedSwitch = connect(state => ({
   location: state.location,
 }))(Switch);
